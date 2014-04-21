@@ -50,7 +50,9 @@ var Segment = function(angle, id) {
     };
 
     this.isClicked = function(x, y) {
-        return true;
+        var hypotenusifier = (x - 300) * (x - 300) + (y - 400) * (y - 400);
+        return Math.sqrt(hypotenusifier) < 100;
+
     };
 
     this.selected = function() {
