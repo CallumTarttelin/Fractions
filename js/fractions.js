@@ -6,7 +6,8 @@ var segments = 6;
 var top = ((2 * Math.PI)/ 4) * 3;
 
 
-function drawSegment(segmentNum) {
+function drawSegment(segmentNum){
+    segmentNum = segmentNum - 1;
     segmentAngle = 360 / segments;
     context.beginPath();
     context.moveTo(300, 400);
@@ -20,7 +21,8 @@ function rad(num) {
     return (num - 90) / 360 * (2 * Math.PI);
 }
 
-drawSegment(5);
+for(segmentNum = 1; segmentNum <= segments; segmentNum++){
 
-Math.cos(rad(360 / segments));
-Math.sin(rad(360 / segments));
+    drawSegment(segmentNum);
+}
+
