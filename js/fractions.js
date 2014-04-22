@@ -52,19 +52,25 @@ var Segment = function(angle, id) {
     this.isClicked = function(x, y) {
         var hypotenusifier = (x - 300) * (x - 300) + (y - 400) * (y - 400);
         if (Math.sqrt(hypotenusifier) > 100) return false;
-        var LR, UD, pos = undefined;
-        if (x > 300) {LR = 10} else{LR = 0};
-        if (y > 400) {UD = 5} else{UD = 0};
-        if (LR + UD = 15) {pos = 1};
-        if (LR + UD = 10) {pos = 2};
-        if (LR + UD = 0) {pos = 3};
-        if (LR + UD = 5) {pos = 4};
+        var lr, ud, pos = undefined;
+        if (x > 300) {lr = 10;} else {lr = 0;}
+        if (y > 400) {ud = 5;} else {ud = 0;}
+        if (lr + ud === 15) {pos = 2;}
+        if (lr + ud === 10) {pos = 1;}
+        if (lr + ud === 0) {pos = 4;}
+        if (lr + ud === 5) {pos = 3;}
 
-        var sectorifier = Math.atan((x - 300) / (y - 400));
+        var sectorifier = (360 / (2 * Math.PI) ) * Math.atan(Math.abs(x - 300) / Math.abs(y - 400));
+        if (pos === 2 || pos === 4) {
+        	sectorifier = 90 - sectorifier;
+        }
         var angle = sectorifier + (90 * (pos - 1));
-        var segment_select = (360 / segments);
-        return this.id == Math.floor(angle / segment_select);
-        
+        var anglometer = (360 / segments);
+        console.log("angle: " + angle);
+        console.log("pos: " + pos);
+        console.log("sectorifier: " + sectorifier);
+        return this.id == Math.floor(angle / anglometer);
+
     };
 
     this.selected = function() {
