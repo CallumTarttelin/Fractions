@@ -6,15 +6,41 @@
     <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <style>
+        body { padding-top: 70px; }
+    </style>
 </head>
 <body>
-<h1>Fractions!</h1>
-<p>Click on the right number of segments matching the fraction.</p>
-<span id="fraction">dd</span>
-<br>
-<canvas id="canvas" width="600" height="800">
-    Your browser doesn't like canvas!
-</canvas>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <a class="navbar-brand" href="#">Saskcow Games</a>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Instructions</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1 class="panel-title">Fractions!</h1>
+        </div>
+        <div class="panel-body">
+            <p>Click on the right number of segments matching the fraction <span id="fraction">... calculating ...</span>.</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="text-center">
+    <canvas id="canvas" width="200" height="200">
+        Your browser doesn't like canvas!
+    </canvas>
+    </div>
+    <div>
+        <a class="btn btn-lg btn-success center-block" onclick="checkAnswer();" role="button">Is it right?</a>
+        <br/>
+        <span id="result"></span>
+    </div>
+</div>
 
 <script src="js/bootstrap.js"></script>
 <script src="js/fractions.js"></script>
